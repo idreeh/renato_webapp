@@ -4,15 +4,13 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
-	"log"
 	"net/http"
 	"webapp/src/config"
 	"webapp/src/modelos"
 	"webapp/src/respostas"
 )
 
-//FazerLogin utiliza o e-mail e senha do usuário para autenticar na aplicação
+// FazerLogin utiliza o e-mail e senha do usuário para autenticar na aplicação
 func FazerLogin(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 
@@ -34,12 +32,8 @@ func FazerLogin(w http.ResponseWriter, r *http.Request) {
 	}
 	defer response.Body.Close()
 
-	corpoResposta, _ := ioutil.ReadAll(response.Body)
-	log.Println("Resposta do servidor:", string(corpoResposta))
-
 	if response.StatusCode >= 400 {
 		respostas.TratarStatusCodeDeErro(w, response)
-		log.Printf("Erro ao fazer login. Status: %d - Resposta: %s", response.StatusCode, response.Body)
 		return
 	}
 
@@ -49,7 +43,6 @@ func FazerLogin(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	//
-
 	respostas.JSON(w, http.StatusOK, nil)
+
 }
