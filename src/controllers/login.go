@@ -33,7 +33,7 @@ func FazerLogin(w http.ResponseWriter, r *http.Request) {
 	defer response.Body.Close()
 
 	if response.StatusCode >= 400 {
-		respostas.TratarStatusCodeDeErro(w, response)
+		respostas.TratarStatusCodeDeErro(w, response) //
 		return
 	}
 
