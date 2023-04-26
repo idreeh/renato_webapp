@@ -26,7 +26,7 @@ func ValidarToken(r *http.Request) error {
 	tokenString := extrairToken(r)
 	token, erro := jwt.Parse(tokenString, retornarChaveDeVerificacao)
 	if erro != nil {
-		return erro
+		return erro //
 	}
 
 	if _, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
