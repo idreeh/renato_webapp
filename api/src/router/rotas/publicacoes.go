@@ -5,6 +5,8 @@ import (
 	"net/http"
 )
 
+const publicacaoURI = "/publicacoes/{publicacaoId}"
+
 var rotasPublicacoes = []Rota{
 	{
 		URI:                "/publicacoes",
@@ -19,19 +21,19 @@ var rotasPublicacoes = []Rota{
 		RequerAutenticacao: true,
 	},
 	{
-		URI:                "/publicacoes/{publicacaoId}",
+		URI:                publicacaoURI,
 		Metodo:             http.MethodGet,
 		Funcao:             controllers.BuscarPublicacao,
 		RequerAutenticacao: true,
 	},
 	{
-		URI:                "/publicacoes/{publicacaoId}",
+		URI:                publicacaoURI,
 		Metodo:             http.MethodPut,
 		Funcao:             controllers.AtualizarPublicacao,
 		RequerAutenticacao: true,
 	},
 	{
-		URI:                "/publicacoes/{publicacaoId}",
+		URI:                publicacaoURI,
 		Metodo:             http.MethodDelete,
 		Funcao:             controllers.DeletarPublicacao,
 		RequerAutenticacao: true,
@@ -43,13 +45,13 @@ var rotasPublicacoes = []Rota{
 		RequerAutenticacao: true,
 	},
 	{
-		URI:                "/publicacoes/{publicacaoId}/curtir",
+		URI:                publicacaoURI + "/curtir",
 		Metodo:             http.MethodPost,
 		Funcao:             controllers.CurtirPublicacao,
 		RequerAutenticacao: true,
 	},
 	{
-		URI:                "/publicacoes/{publicacaoId}/descurtir",
+		URI:                publicacaoURI + "/descurtir",
 		Metodo:             http.MethodPost,
 		Funcao:             controllers.DescurtirPublicacao,
 		RequerAutenticacao: true,

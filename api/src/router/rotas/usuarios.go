@@ -5,6 +5,8 @@ import (
 	"net/http"
 )
 
+const usuarioURI = "/usuarios/{usuarioId}"
+
 var rotasUsuarios = []Rota{
 	{
 		URI:                "/usuarios",
@@ -19,19 +21,19 @@ var rotasUsuarios = []Rota{
 		RequerAutenticacao: true,
 	},
 	{
-		URI:                "/usuarios/{usuarioId}",
+		URI:                usuarioURI,
 		Metodo:             http.MethodGet,
 		Funcao:             controllers.BuscarUsuario,
 		RequerAutenticacao: true,
 	},
 	{
-		URI:                "/usuarios/{usuarioId}",
+		URI:                usuarioURI,
 		Metodo:             http.MethodPut,
 		Funcao:             controllers.AtualizarUsuario,
 		RequerAutenticacao: true,
 	},
 	{
-		URI:                "/usuarios/{usuarioId}",
+		URI:                usuarioURI,
 		Metodo:             http.MethodDelete,
 		Funcao:             controllers.DeletarUsuario,
 		RequerAutenticacao: true,
